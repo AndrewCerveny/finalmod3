@@ -1,8 +1,9 @@
 import React from 'react';
 import './UrlContainer.css';
 
-const UrlContainer = props => {
-  const urlEls = props.urls.map(url => {
+
+const UrlContainer = ({urls,error}) => {
+  const urlEls = urls.map(url => {
     return (
       <div className="url" key={url.id}>
         <h3>{url.title}</h3>
@@ -11,12 +12,18 @@ const UrlContainer = props => {
       </div>
     )
   });
-
-  return (
-    <section>
-      { urlEls.length ? urlEls : <p>No urls yet! Find some to shorten!</p> }
-    </section>
-  )
+   
+ 
+  
+    return (
+      <section>
+        {urlEls.length && !error ? urlEls : <p>No urls yet! Find some to shorten!</p> }
+        {!urlEls.length && error ? <p>{error} Could not connect!`</p>:null}
+      </section>
+    )
 }
+  
+
+
 
 export default UrlContainer;
