@@ -13,10 +13,11 @@ const UrlContainer = ({urls,error}) => {
     )
   });
    
+ 
   
     return (
       <section>
-        { urlEls.length && !error ? urlEls : <p>No urls yet! Find some to shorten!</p> }
+        {urlEls.length && !error ? urlEls : <p>No urls yet! Find some to shorten!</p> }
         {!urlEls.length && error ? <p>{error} Could not connect!`</p>:null}
       </section>
     )

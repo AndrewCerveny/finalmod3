@@ -22,7 +22,7 @@ export class App extends Component {
   addToServer = (alteredURl) => {
     placeUrls(alteredURl)
       .then((data) => this.setState({urls : [...this.state.urls, alteredURl]}))
-      .then((err) => this.setState({error:`${err.status}:${err.message}`}))
+      .then((err) => this.setState({error:`${err.status} :${err.message}`}))
   }
 
   render() {
