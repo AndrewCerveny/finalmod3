@@ -1,6 +1,6 @@
 import React from 'react';
 import './UrlContainer.css';
-import Error from '../Error/Error';
+
 
 const UrlContainer = ({urls,error}) => {
   const urlEls = urls.map(url => {
@@ -13,17 +13,16 @@ const UrlContainer = ({urls,error}) => {
     )
   });
    
-  if(error){
-    return <Error message={error}/>
-  }else{
+  
     return (
       <section>
-        { urlEls.length ? urlEls : <p>No urls yet! Find some to shorten!</p> }
+        { urlEls.length && !error ? urlEls : <p>No urls yet! Find some to shorten!</p> }
+        {!urlEls.length && error ? <p>{error} Could not connect!`</p>:null}
       </section>
     )
-  }
+}
   
 
-}
+
 
 export default UrlContainer;
