@@ -1,6 +1,12 @@
 const getUrls = () => {
   return fetch('http://localhost:3001/api/v1/urls')
-      .then(response => response.json())
+      .then(res => {
+        if(res.ok){
+          return res.json()
+        } else{
+          throw new Error('Information connection Whoops')
+        }
+      })
 }
 
 const placeUrls = (urlObj) => {
@@ -11,9 +17,14 @@ const placeUrls = (urlObj) => {
     'Content-Type': 'application/json'
   }
   })
-  .then((res) => res.json())
+  .then((res) => {
+    if(res.ok){
+      return res.json()
+    }else{
+      throw new Error('server contact whoops try again later')
+    }
+  })
 }
 
 export {getUrls, placeUrls} 
 
-// {id:number, long_url: "string", short Url: string, title: string}
