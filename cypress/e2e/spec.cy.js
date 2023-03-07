@@ -23,7 +23,7 @@ describe('empty spec', () => {
     cy.get('[placeholder="URL to Shorten..."]').type('https://wildandkillingthegame.com').should('have.value','https://wildandkillingthegame.com')
     cy.get('button').click()
   })
-  it.only('Should place a new URL on to the dom', function() {
+  it('Should place a new URL on to the dom', function() {
     cy.get('form')
     cy.get('[placeholder="Title..."]').type('postedStub').should('have.value','postedStub')
     cy.get('[placeholder="URL to Shorten..."]').type('https://awesomehappypuppy.com').should('have.value','https://awesomehappypuppy.com')
@@ -34,9 +34,6 @@ describe('empty spec', () => {
     })
     cy.get(':nth-child(3) > h3').contains('postedStub')
     cy.get(':nth-child(3) > p').contains("https://awesomehappypuppy.com")
-    
-    
-    
 
   })
 })
