@@ -10,7 +10,7 @@ const getUrls = () => {
 }
 
 const placeUrls = (urlObj) => {
-  return fetch('http://localhost:3001/api/v1/url', {
+  return fetch('http://localhost:3001/api/v1/urls', {
   method:'POST',
   body:JSON.stringify(urlObj),
   headers:{
