@@ -1,8 +1,9 @@
 import React from 'react';
 import './UrlContainer.css';
+import Error from '../Error/Error';
 
-const UrlContainer = props => {
-  const urlEls = props.urls.map(url => {
+const UrlContainer = ({urls,error}) => {
+  const urlEls = urls.map(url => {
     return (
       <div className="url" key={url.id}>
         <h3>{url.title}</h3>
@@ -11,12 +12,18 @@ const UrlContainer = props => {
       </div>
     )
   });
+   
+  if(error){
+    return <Error message={error}/>
+  }else{
+    return (
+      <section>
+        { urlEls.length ? urlEls : <p>No urls yet! Find some to shorten!</p> }
+      </section>
+    )
+  }
+  
 
-  return (
-    <section>
-      { urlEls.length ? urlEls : <p>No urls yet! Find some to shorten!</p> }
-    </section>
-  )
 }
 
 export default UrlContainer;
